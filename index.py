@@ -78,8 +78,11 @@ def run_commands(commands_list, project_dir=None):
     if project_dir:
         original_dir = os.getcwd()
         base_project_path = config.get('base_project_path')
-        if not base_project_path:
-            raise ValueError("❌ Error: 'base_project_path' is not defined in the configuration file (config.json).")
+        if not base_project_path or base_project_path == "<your_project_path>":
+            raise ValueError(
+                "❌ Error: 'base_project_path' is not defined or is still set to '<your_project_path>' in the configuration file (config.json). "
+                "Please update it to your project's root directory."
+            )
         
         project_path = os.path.join(os.path.expanduser(base_project_path), project_dir)
         try:
