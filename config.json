@@ -21,5 +21,6 @@
   },
   "system_commands": {
     "disk_usage_threshold": 80
-  }
+  },
+  "base_project_path": "~/work"
 }
