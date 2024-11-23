@@ -26,17 +26,24 @@ CursorBoost is a CLI tool designed to dynamically generate and maintain an accur
   - `snapshot.txt`: Contains the latest system and project snapshots for reference.
 
 ## Installation
-1. Clone the repository:
+1. Navigate to your project's root directory:
    ```bash
-   git clone <repository-url>
+   cd /path/to/your/project
+   ```
+2. Clone the repository:
+   ```bash
+   git clone git@github.com:grp06/cursor-boost.git .cursorboost
    cd .cursorboost
    ```
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up environment variables:
-   - Create a `.env` file in the `.cursorboost` directory.
+4. Set up environment variables:
+   - Create a `.env` file in the `.cursorboost` directory:
+     ```bash
+     touch .cursorboost/.env
+     ```
    - Add your OpenAI API key:
      ```
      OPENAI_API_KEY=your_openai_api_key
@@ -98,3 +105,4 @@ Here’s an example of how your project directory might look:
 - **`.cursorboost/`**: Contains the CursorBoost tool and configuration files.
 - **`.cursorrules`**: Generated at the root of your project directory.
 - **`snapshot.txt`**: Contains the latest system and project snapshots.
+
