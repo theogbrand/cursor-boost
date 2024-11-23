@@ -1,11 +1,11 @@
 # CursorBoost
 
-CursorBoost is a CLI tool designed to dynamically generate and maintain an accurate `.cursorrules` file for improved integration with **Cursor**, a VSCode fork powered by GPT-4. By automating system and project environment analysis, CursorBoost ensures that `.cursorrules` stays up-to-date, reducing errors and enhancing coding assistance in complex development environments.
+CursorBoost is a CLI tool designed to dynamically generate and maintain an accurate `.cursorrules` file for improved integration with **Cursor**, a VSCode fork powered by GPT-4o. By automating system and project environment analysis, CursorBoost ensures that `.cursorrules` stays up-to-date, reducing errors and enhancing coding assistance in complex development environments.
 
 ## Features
 - **System Snapshot**: Collects real-time system information (e.g., Docker status, disk usage, memory stats, network ports).
 - **Project Analysis**: Scans project directories and dependencies to provide detailed context.
-- **LLM Integration**: Uses OpenAI's GPT-4 to generate `.cursorrules` based on collected data.
+- **LLM Integration**: Uses OpenAI's GPT-4o to generate `.cursorrules` based on collected data.
 - **Docker Logs**: Includes logs from running Docker containers for debugging.
 - **Continuous Updates**: Periodically refreshes `.cursorrules` and system snapshots.
 
