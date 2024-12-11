@@ -41,13 +41,13 @@ combined_ignore = f"{ignore_patterns}|{ignore_extensions}"
 system_commands = [
     "uname -a",
     "python --version",
-    "pip list",
+    "uv pip list",
     "python -c 'import sys; print(sys.path)'",
-    "docker ps",
+    # "docker ps",
     f"df -h | awk '(NR==1) || ($5+0 >= {config['system_commands']['disk_usage_threshold']})'",
     "vm_stat | awk '/Pages free:|Pages active:|Pages inactive:|Pages wired down:/ {print}'",
     "netstat -an | grep LISTEN | awk '{print $4}' | sort -u",
-    "printenv | grep -v 'KEY\\|SECRET\\|PASS\\|TOKEN'",
+    # "printenv | grep -v 'KEY\\|SECRET\\|PASS\\|TOKEN'",
 ]
 
 project_commands = [
@@ -174,11 +174,12 @@ def write_cursorrules(cursorrules):
     
     docker_logs = get_docker_logs()
     
-    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    cursorrules_path = os.path.join(parent_dir, '.cursorrules')
+    cursorrules_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.cursorrules')
+    print(f"💡 Debug: Writing .cursorrules to: {cursorrules_path}")
     
     with open(cursorrules_path, "w") as f:
         f.write(f"{project_description}{cursorrules}\n\n# Docker Container Logs:\n\n{docker_logs}")
+        print(f"💡 Debug: Successfully wrote {os.path.getsize(cursorrules_path)} bytes to .cursorrules")
 
 def find_requirements_files(root_dir):
     requirements_files = []
